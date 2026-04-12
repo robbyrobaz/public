@@ -13,40 +13,40 @@ _All SaaS/product ideas assume AI support layer (Claude API + GitHub issue injec
 
 | Rank | Idea | Score | Auto% | Difficulty | Startup$ | Op$/mo | Income/mo (realistic) | Paid Social | Status |
 |------|------|-------|-------|------------|----------|--------|-----------------------|-------------|--------|
-| 1 | **LinkedIn AI-Era Profile Optimizer** ⭐ | **86.5** | 90% | 3/10 | $1,200 | $45 | $19,400 | 🟢 TikTok+Meta | NEW |
-| 2 | **AI Resume & Job Document SaaS** | **85.5** | 90% | 5/10 | $200 | $45 | $1,200 | 🟢 TikTok | NEW |
-| 3 | AI Review Responder SaaS (local biz) | 83.25 | 85% | 7/10 | $20 | $25 | $500 | 🟢 Meta | NEW |
-| 4 | **AI Job Threat Intelligence Dashboard** | **82.75** | 85% | 5/10 | $1,200 | $60 | $9,600 | 🟢 TikTok | NEW |
-| 5 | **Career Pivot Planner** | **82.0** | 82% | 5/10 | $2,000 | $70 | $18,000 | 🟢 Meta | NEW |
-| 6 | White-Label AI Chatbot Agency | 81.50 | 78% | 4/10 | $500 | $227 | $3,750 | 🟢 Meta | NEW |
-| 7 | **AI Dental/Medical Patient Reactivation** 📞 | **81.5** | 88% | 4/10 | $800 | $300 | $4,200 | 🟡 Cold email | NEW |
-| 8 | Programmatic SEO + Amazon Associates | 80.00 | 85% | 6/10 | $15 | $25 | $300–$800 | 🔴 Skip | NEW |
-| 9 | **AI Ad Creative Generator (Local Biz)** | **79.0** | 82% | 5/10 | $500 | $30 | $2,800 | 🟢 Meta+TikTok | NEW |
-| 10 | **AI Meeting Notes → CRM (GoHighLevel)** | **78.5** | 82% | 6/10 | $600 | $45 | $3,800 | 🟢 TikTok+Meta | NEW |
-| 10 | Church SMS SaaS | 78.50 | 80% | 6/10 | $1,000 | $125 | $7,800 | 🟡 Weak | NEW |
-| 12 | **Role-Specific AI Upskilling SaaS** | **78.0** | 70% | 5/10 | $1,500 | $75 | $21,600 | 🟢 TikTok+Meta | NEW |
-| 13 | Niche Sports Data API | 77.75 | 85% | 7/10 | $300 | $48 | $3,450 | 🔴 Skip | NEW |
-| 14 | **AI Solar/Home Services Appt Setting** 📞 | **77.0** | 82% | 5/10 | $1,000 | $800 | $8,000 | 🟢 Meta | NEW |
-| 14 | **AI Real Estate Past-Client Reactivation** 📞 | **77.0** | 80% | 4/10 | $600 | $200 | $5,000 | 🟢 Meta | NEW |
-| 14 | **AI Nonprofit/Alumni Phonathon** 📞 | **77.0** | 82% | 4/10 | $600 | $300 | $3,000 | 🔴 Direct outreach | NEW |
-| 14 | **AI Virtual Receptionist (Contractor)** | **77.0** | 82% | 7/10 | $1,200 | $65 | $7,500 | 🟢 Meta | NEW |
-| 14 | **AI Interview Simulator (niche)** | **77.0** | 80% | 6/10 | $3,000 | $140 | $36,000 | 🟢 TikTok | NEW |
-| 19 | **B2B AI SDR Agency** 📞 | **76.0** | 78% | 6/10 | $1,500 | $2,500 | $10,000 | 🟢 Meta+LinkedIn | NEW |
-| 20 | AI Lead Gen for Contractors | 75.00 | 80% | 6/10 | $300 | $200 | $3,550 | 🟢 Meta | NEW |
-| 21 | **White-Label AI Calling Infrastructure** 📞 | **74.0** | 72% | 6/10 | $2,000 | $3,000 | $11,500 | 🔴 Skip | WATCHING |
-| 21 | AI Voice Insurance Sales (son's leads) 📞 | ~~81.5~~ **74.5** | 65% | 7/10 | $500 | $400 | $6K–$10K | 🟢 Meta | WATCHING ↓ |
-| 23 | Autonomous AI Newsletter (beehiiv) | 74.00 | 70% | 4/10 | $0 | $0 | $50–$500 | — | DEFERRED |
-| 24 | AI-Proof Soft Skills Coaching | 72.25 | 65% | 7/10 | $2,500 | $90 | $21,600 | 🟡 Weak | WATCHING |
-| 24 | AI Content Repurposing Tool | 72.0 | 82% | 4/10 | $350 | $35 | $2,500 | 🟢 TikTok | WATCHING |
-| 24 | AI Print on Demand (Redbubble/Merch) | 72.00 | 65% | 5/10 | $50 | $20 | $100–$800 | — | WATCHING |
-| 27 | AI Local SEO & GBP Optimizer | 71.0 | 72% | 6/10 | $800 | $50 | $4,500 | 🟢 Meta | WATCHING |
-| 28 | AI Bookkeeping & Expense Automator | 69.0 | 76% | 6/10 | $700 | $55 | $2,800 | 🟡 Weak | WATCHING |
-| 29 | Amazon KDP Low-Content Books | 68.00 | 60% | 5/10 | $0 | $5 | $100–$600 | — | ABANDONED |
-| 30 | Faceless Finance YouTube | 67.50 | 70% | 5/10 | $200 | $78 | $1,200 | — | WATCHING |
-| 31 | AI Micro-SaaS API Wrapper (generic) | 67.00 | 40% | 8/10 | $50 | $50 | $500–$5,000 | — | DEFERRED |
-| 32 | AI Competitor Price Tracker (Shopify) | 65.0 | 72% | 7/10 | $400 | $40 | $2,500 | 🔴 Skip | WATCHING |
-| 33 | AI Literacy Certification (B2C) | 64.00 | 75% | 8/10 | $4,500 | $115 | — | 🔴 Skip | ABANDONED |
-| 34 | AI Microstock Photos | 62.00 | 70% | 3/10 | $0 | $5 | $20–$100 | — | ABANDONED |
+| 1 | [**LinkedIn AI-Era Profile Optimizer** ⭐](2026-04-11-ai-career-survival-niche.md#deep-dive-1-linkedin-ai-era-profile-optimizer--865--new-1-overall) | **86.5** | 90% | 3/10 | $1,200 | $45 | $19,400 | 🟢 TikTok+Meta | NEW |
+| 2 | [**AI Resume & Job Document SaaS**](2026-04-11-research-batch2.md#deep-dive-1-ai-resume--job-document-saas--score-8550) | **85.5** | 90% | 5/10 | $200 | $45 | $1,200 | 🟢 TikTok | NEW |
+| 3 | [AI Review Responder SaaS (local biz)](2026-04-11-research.md) | 83.25 | 85% | 7/10 | $20 | $25 | $500 | 🟢 Meta | NEW |
+| 4 | [**AI Job Threat Intelligence Dashboard**](2026-04-11-ai-career-survival-niche.md#deep-dive-2-ai-job-threat-intelligence-dashboard--8275) | **82.75** | 85% | 5/10 | $1,200 | $60 | $9,600 | 🟢 TikTok | NEW |
+| 5 | [**Career Pivot Planner**](2026-04-11-ai-career-survival-niche.md#deep-dive-3-career-pivot-planner-with-financial-layer--820) | **82.0** | 82% | 5/10 | $2,000 | $70 | $18,000 | 🟢 Meta | NEW |
+| 6 | [White-Label AI Chatbot Agency](2026-04-11-research-batch2.md#deep-dive-2-white-label-ai-chatbot-agency--score-8150) | 81.50 | 78% | 4/10 | $500 | $227 | $3,750 | 🟢 Meta | NEW |
+| 7 | [**AI Dental/Medical Patient Reactivation** 📞](2026-04-11-ai-calling-businesses.md#deep-dive-1-ai-dentalmedical-patient-reactivation--815) | **81.5** | 88% | 4/10 | $800 | $300 | $4,200 | 🟡 Cold email | NEW |
+| 8 | [Programmatic SEO + Amazon Associates](2026-04-11-research.md) | 80.00 | 85% | 6/10 | $15 | $25 | $300–$800 | 🔴 Skip | NEW |
+| 9 | [**AI Ad Creative Generator (Local Biz)**](2026-04-11-research-batch3.md#deep-dive-1-ai-ad-creative-generator-local-biz--790--top-pick-this-batch) | **79.0** | 82% | 5/10 | $500 | $30 | $2,800 | 🟢 Meta+TikTok | NEW |
+| 10 | [**AI Meeting Notes → CRM (GoHighLevel)**](2026-04-11-research-batch3.md#deep-dive-2-ai-meeting-notes--crm-extractor-gohighlevel--785) | **78.5** | 82% | 6/10 | $600 | $45 | $3,800 | 🟢 TikTok+Meta | NEW |
+| 10 | [Church SMS SaaS](2026-04-11-church-sms-saas.md) | 78.50 | 80% | 6/10 | $1,000 | $125 | $7,800 | 🟡 Weak | NEW |
+| 12 | [**Role-Specific AI Upskilling SaaS**](2026-04-11-ai-career-survival-niche.md#deep-dive-4-role-specific-ai-upskilling-saas--780) | **78.0** | 70% | 5/10 | $1,500 | $75 | $21,600 | 🟢 TikTok+Meta | NEW |
+| 13 | [Niche Sports Data API](2026-04-11-research-batch2.md#deep-dive-3-niche-sports-data-api--score-7775) | 77.75 | 85% | 7/10 | $300 | $48 | $3,450 | 🔴 Skip | NEW |
+| 14 | [**AI Solar/Home Services Appt Setting** 📞](2026-04-11-ai-calling-businesses.md#deep-dive-2-solarhome-services-appointment-setting--770) | **77.0** | 82% | 5/10 | $1,000 | $800 | $8,000 | 🟢 Meta | NEW |
+| 14 | [**AI Real Estate Past-Client Reactivation** 📞](2026-04-11-ai-calling-businesses.md#deep-dive-3-real-estate-past-client-reactivation--770) | **77.0** | 80% | 4/10 | $600 | $200 | $5,000 | 🟢 Meta | NEW |
+| 14 | [**AI Nonprofit/Alumni Phonathon** 📞](2026-04-11-ai-calling-businesses.md#deep-dive-4-nonprofit--alumni-phonathon-calling--770) | **77.0** | 82% | 4/10 | $600 | $300 | $3,000 | 🔴 Direct outreach | NEW |
+| 14 | [**AI Virtual Receptionist (Contractor)**](2026-04-11-research-batch3.md#deep-dive-3-ai-virtual-receptionist-hvaccontractor-vertical--770) | **77.0** | 82% | 7/10 | $1,200 | $65 | $7,500 | 🟢 Meta | NEW |
+| 14 | [**AI Interview Simulator (niche)**](2026-04-11-ai-career-survival-niche.md#deep-dive-5-ai-interview-simulator-niche-verticals--770) | **77.0** | 80% | 6/10 | $3,000 | $140 | $36,000 | 🟢 TikTok | NEW |
+| 19 | [**B2B AI SDR Agency** 📞](2026-04-11-ai-calling-businesses.md#deep-dive-5-b2b-ai-sdr-agency--760) | **76.0** | 78% | 6/10 | $1,500 | $2,500 | $10,000 | 🟢 Meta+LinkedIn | NEW |
+| 20 | [AI Lead Gen for Contractors](2026-04-11-research-batch2.md#deep-dive-4-ai-lead-gen-for-home-service-contractors--score-7500) | 75.00 | 80% | 6/10 | $300 | $200 | $3,550 | 🟢 Meta | NEW |
+| 21 | [White-Label AI Calling Infrastructure 📞](2026-04-11-ai-calling-businesses.md#idea-6-white-label-ai-calling-infrastructure--740-watching) | **74.0** | 72% | 6/10 | $2,000 | $3,000 | $11,500 | 🔴 Skip | WATCHING |
+| 21 | [AI Voice Insurance Sales (son's leads) 📞](2026-04-11-ai-voice-insurance-sales.md) | ~~81.5~~ **74.5** | 65% | 7/10 | $500 | $400 | $6K–$10K | 🟢 Meta | WATCHING ↓ |
+| 23 | [Autonomous AI Newsletter (beehiiv)](2026-04-11-research.md) | 74.00 | 70% | 4/10 | $0 | $0 | $50–$500 | — | DEFERRED |
+| 24 | [AI-Proof Soft Skills Coaching](2026-04-11-ai-career-survival-niche.md#idea-6-ai-proof-soft-skills--7225-watching) | 72.25 | 65% | 7/10 | $2,500 | $90 | $21,600 | 🟡 Weak | WATCHING |
+| 24 | [AI Content Repurposing Tool](2026-04-11-research-batch3.md#idea-5-ai-content-repurposing-tool--720-watch) | 72.0 | 82% | 4/10 | $350 | $35 | $2,500 | 🟢 TikTok | WATCHING |
+| 24 | [AI Print on Demand (Redbubble/Merch)](2026-04-11-research.md) | 72.00 | 65% | 5/10 | $50 | $20 | $100–$800 | — | WATCHING |
+| 27 | [AI Local SEO & GBP Optimizer](2026-04-11-research-batch3.md#idea-4-ai-local-seo--gbp-optimizer--710-watch) | 71.0 | 72% | 6/10 | $800 | $50 | $4,500 | 🟢 Meta | WATCHING |
+| 28 | [AI Bookkeeping & Expense Automator](2026-04-11-research-batch3.md#idea-6-ai-bookkeeping--expense-automator--690-watch) | 69.0 | 76% | 6/10 | $700 | $55 | $2,800 | 🟡 Weak | WATCHING |
+| 29 | [Amazon KDP Low-Content Books](2026-04-11-research.md) | 68.00 | 60% | 5/10 | $0 | $5 | $100–$600 | — | ABANDONED |
+| 30 | [Faceless Finance YouTube](2026-04-11-research-batch2.md#deep-dive-5-faceless-finance-youtube-channel--score-6750) | 67.50 | 70% | 5/10 | $200 | $78 | $1,200 | — | WATCHING |
+| 31 | [AI Micro-SaaS API Wrapper (generic)](2026-04-11-research.md) | 67.00 | 40% | 8/10 | $50 | $50 | $500–$5,000 | — | DEFERRED |
+| 32 | [AI Competitor Price Tracker (Shopify)](2026-04-11-research-batch3.md#idea-7-ai-competitor-price-tracker-shopify--650-watch) | 65.0 | 72% | 7/10 | $400 | $40 | $2,500 | 🔴 Skip | WATCHING |
+| 33 | [AI Literacy Certification (B2C)](2026-04-11-ai-career-survival-niche.md#idea-7-ai-literacy-certification--640-skip) | 64.00 | 75% | 8/10 | $4,500 | $115 | — | 🔴 Skip | ABANDONED |
+| 34 | [AI Microstock Photos](2026-04-11-research.md) | 62.00 | 70% | 3/10 | $0 | $5 | $20–$100 | — | ABANDONED |
 
 _📞 = AI voice calling idea (self-hosted infrastructure, $200-300/mo VPS + Twilio)_
 
@@ -58,13 +58,13 @@ _Already built and running on omen-claw. Scored on same criteria for consistent 
 
 | Rank | System | Score | Auto% | Status | Location | Monthly Income Est. |
 |------|--------|-------|-------|--------|----------|---------------------|
-| 1 | **NQ God Model V2** | 82 | 95% | BUILDING | NQ-Trading-PIPELINE/ | $5K–$15K/mo (post-eval) |
-| 2 | **SP500 Hyperliquid** | 70 | 90% | BUILDING | hyperliquid-sp500-pipeline/ | $1K–$5K/mo (when live) |
-| 3 | **Blofin Trader** | 68 | 85% | LIVE | blofin-stack/ | TBD (check live_trading.db) |
-| 4 | **Kalshi Betting** | 65 | 85% | LIVE (micro) | Kalshi workspace | $200–$1K/mo @ $1K bankroll |
-| 5 | **Moonshot Trader** | 62 | 80% | BUILDING | blofin-moonshot-v2/ | TBD (check moonshot_v2.db) |
-| 6 | **Reef/Memecoin Hunter** | 58 | 80% | BUILDING | reef-workspace/ | $500–$3K/mo (not live yet) |
-| 7 | **Church SMS SaaS** | 78.5 | 80% | **RECOMMEND BUILD** | /home/rob/church/ | $1.9K–$7.8K/mo (needs UI) |
+| 1 | [**NQ God Model V2**](existing-systems-evaluation.md#1-nq-god-model-v2-futures-trading) | 82 | 95% | BUILDING | NQ-Trading-PIPELINE/ | $5K–$15K/mo (post-eval) |
+| 2 | [**SP500 Hyperliquid**](existing-systems-evaluation.md#2-sp500-hyperliquid-pipeline) | 70 | 90% | BUILDING | hyperliquid-sp500-pipeline/ | $1K–$5K/mo (when live) |
+| 3 | [**Blofin Trader**](existing-systems-evaluation.md#6-blofin-trader-blofin-stack) | 68 | 85% | LIVE | blofin-stack/ | TBD (check live_trading.db) |
+| 4 | [**Kalshi Betting**](existing-systems-evaluation.md#4-kalshi-prediction-market-betting) | 65 | 85% | LIVE (micro) | Kalshi workspace | $200–$1K/mo @ $1K bankroll |
+| 5 | [**Moonshot Trader**](existing-systems-evaluation.md#7-moonshot-trader-blofin-moonshot-v2) | 62 | 80% | BUILDING | blofin-moonshot-v2/ | TBD (check moonshot_v2.db) |
+| 6 | [**Reef/Memecoin Hunter**](existing-systems-evaluation.md#3-reef-copy-engine--memecoin-scanner) | 58 | 80% | BUILDING | reef-workspace/ | $500–$3K/mo (not live yet) |
+| 7 | [**Church SMS SaaS**](2026-04-11-church-sms-saas.md) | 78.5 | 80% | **RECOMMEND BUILD** | /home/rob/church/ | $1.9K–$7.8K/mo (needs UI) |
 
 Full evaluation with financials: [existing-systems-evaluation.md](existing-systems-evaluation.md)
 
