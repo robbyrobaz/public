@@ -175,6 +175,7 @@ Human time: ~2–4 hrs/month regardless of customer count. This bumps passivity
 | 2026-04-11 | [2026-04-11-research-batch2.md](./2026-04-11-research-batch2.md) | AI Resume SaaS (85.50) | 5 new ideas: resume, chatbot agency, sports API, lead gen, YouTube |
 | 2026-04-11 | [2026-04-11-ai-career-survival-niche.md](./2026-04-11-ai-career-survival-niche.md) | AI Career Survival Niche (7 ideas) | 7 AI job security ideas: threat dashboard, pivot planner, upskilling, interview sim + others |
 | 2026-04-11 | [2026-04-11-linkedin-optimizer.md](./2026-04-11-linkedin-optimizer.md) | **LinkedIn Optimizer — Full Product Spec (86.5)** | Dedicated deep-dive: AI interview flow, approval loop, $20K/mo math, full build plan |
+| 2026-04-11 | [2026-04-11-linkedin-optimizer-ai-reviews.md](./2026-04-11-linkedin-optimizer-ai-reviews.md) | **LinkedIn Optimizer — AI Peer Reviews (Grok / Opus / MiniMax)** | 3 independent AI reviews: Grok=BUILD 88/100, Opus=WATCH, MiniMax=SKIP. Key fixes: cost model, LTV, job data source |
 | 2026-04-11 | [2026-04-11-research-batch3.md](./2026-04-11-research-batch3.md) | AI Ad Creative Local (79.0) | 7 Grok-sourced ideas re-scored; avg Grok 80.9 → honest 73.1; voice insurance re-scored 81.5 → 74.5 |
 | 2026-04-11 | [2026-04-11-ai-calling-businesses.md](./2026-04-11-ai-calling-businesses.md) | Dental/Medical Reactivation (81.5) | 6 AI voice calling ideas; self-hosted infra arbitrage ($0.015/min vs $0.09/min hosted); all share one VPS |
 
