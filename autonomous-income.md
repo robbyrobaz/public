@@ -59,7 +59,7 @@ _Already built and running on omen-claw. Scored on same criteria for consistent 
 | Rank | System | Score | Auto% | Status | Location | Monthly Income Est. |
 |------|--------|-------|-------|--------|----------|---------------------|
 | 1 | **NQ God Model V2** | 82 | 95% | BUILDING | NQ-Trading-PIPELINE/ | $5K–$15K/mo (post-eval) |
-| 2 | **SP500 Hyperliquid** | 70 | 90% | BUILDING | go-trader/ | $1K–$5K/mo (when live) |
+| 2 | **SP500 Hyperliquid** | 70 | 90% | BUILDING | hyperliquid-sp500-pipeline/ | $1K–$5K/mo (when live) |
 | 3 | **Blofin Trader** | 68 | 85% | LIVE | blofin-stack/ | TBD (check live_trading.db) |
 | 4 | **Kalshi Betting** | 65 | 85% | LIVE (micro) | Kalshi workspace | $200–$1K/mo @ $1K bankroll |
 | 5 | **Moonshot Trader** | 62 | 80% | BUILDING | blofin-moonshot-v2/ | TBD (check moonshot_v2.db) |
