@@ -13,7 +13,7 @@ _All SaaS/product ideas assume AI support layer (Claude API + GitHub issue injec
 
 | Rank | Idea | Score | Auto% | Difficulty | Startup$ | Op$/mo | Income/mo (realistic) | Paid Social | Status |
 |------|------|-------|-------|------------|----------|--------|-----------------------|-------------|--------|
-| 1 | [**LinkedIn AI-Era Profile Optimizer** ⭐](2026-04-11-ai-career-survival-niche.md#deep-dive-1-linkedin-ai-era-profile-optimizer--865--new-1-overall) | **86.5** | 90% | 3/10 | $1,200 | $45 | $19,400 | 🟢 TikTok+Meta | NEW |
+| 1 | [**LinkedIn AI-Era Profile Optimizer** ⭐](2026-04-11-ai-career-survival-niche.md#deep-dive-1-linkedin-ai-era-profile-optimizer--865--new-1-overall) | **86.5** | 90% | 3/10 | **$50** | $45 | $19,400 | 🟢 TikTok+Meta | NEW |
 | 2 | [**AI Resume & Job Document SaaS**](2026-04-11-research-batch2.md#deep-dive-1-ai-resume--job-document-saas--score-8550) | **85.5** | 90% | 5/10 | $200 | $45 | $1,200 | 🟢 TikTok | NEW |
 | 3 | [AI Review Responder SaaS (local biz)](2026-04-11-research.md) | 83.25 | 85% | 7/10 | $20 | $25 | $500 | 🟢 Meta | NEW |
 | 4 | [**AI Job Threat Intelligence Dashboard**](2026-04-11-ai-career-survival-niche.md#deep-dive-2-ai-job-threat-intelligence-dashboard--8275) | **82.75** | 85% | 5/10 | $1,200 | $60 | $9,600 | 🟢 TikTok | NEW |
