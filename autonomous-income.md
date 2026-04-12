@@ -13,7 +13,7 @@ _All SaaS/product ideas assume AI support layer (Claude API + GitHub issue injec
 
 | Rank | Idea | Score | Auto% | Difficulty | Startup$ | Op$/mo | Income/mo (realistic) | Paid Social | Status |
 |------|------|-------|-------|------------|----------|--------|-----------------------|-------------|--------|
-| 1 | [**LinkedIn AI-Era Profile Optimizer** ⭐](2026-04-11-ai-career-survival-niche.md#deep-dive-1-linkedin-ai-era-profile-optimizer--865--new-1-overall) | **86.5** | 90% | 3/10 | **$50** | $45 | $19,400 | 🟢 TikTok+Meta | NEW |
+| 1 | [**LinkedIn AI-Era Profile Optimizer** ⭐](2026-04-11-linkedin-optimizer.md) | **86.5** | 90% | 4/10 | **$50** | $45 | $19,400 | 🟢 TikTok+Meta | NEW |
 | 2 | [**AI Resume & Job Document SaaS**](2026-04-11-research-batch2.md#deep-dive-1-ai-resume--job-document-saas--score-8550) | **85.5** | 90% | 5/10 | $200 | $45 | $1,200 | 🟢 TikTok | NEW |
 | 3 | [AI Review Responder SaaS (local biz)](2026-04-11-research.md) | 83.25 | 85% | 7/10 | $20 | $25 | $500 | 🟢 Meta | NEW |
 | 4 | [**AI Job Threat Intelligence Dashboard**](2026-04-11-ai-career-survival-niche.md#deep-dive-2-ai-job-threat-intelligence-dashboard--8275) | **82.75** | 85% | 5/10 | $1,200 | $60 | $9,600 | 🟢 TikTok | NEW |
@@ -109,7 +109,7 @@ Max possible score: 100
 ---
 
 ## RECOMMEND BUILDING (score 75+)
-- **86.50** ⭐ — LinkedIn AI-Era Profile Optimizer → [2026-04-11-ai-career-survival-niche.md](./2026-04-11-ai-career-survival-niche.md)
+- **86.50** ⭐ — LinkedIn AI-Era Profile Optimizer → [2026-04-11-linkedin-optimizer.md](./2026-04-11-linkedin-optimizer.md)
 - **85.50** — AI Resume & Job Doc SaaS → [2026-04-11-research-batch2.md](./2026-04-11-research-batch2.md)
 - **83.25** — AI Review Responder SaaS → [2026-04-11-research.md](./2026-04-11-research.md) (Addendum)
 - **82.75** — AI Job Threat Intelligence Dashboard → [2026-04-11-ai-career-survival-niche.md](./2026-04-11-ai-career-survival-niche.md)
@@ -173,7 +173,8 @@ Human time: ~2–4 hrs/month regardless of customer count. This bumps passivity
 | 2026-04-11 | [existing-systems-evaluation.md](./existing-systems-evaluation.md) | NQ God Model V2 (82) | 7 existing systems |
 | 2026-04-11 | [2026-04-11-church-sms-saas.md](./2026-04-11-church-sms-saas.md) | Church SMS SaaS (78.5) | Deep-dive: market research, competitors, GTM |
 | 2026-04-11 | [2026-04-11-research-batch2.md](./2026-04-11-research-batch2.md) | AI Resume SaaS (85.50) | 5 new ideas: resume, chatbot agency, sports API, lead gen, YouTube |
-| 2026-04-11 | [2026-04-11-ai-career-survival-niche.md](./2026-04-11-ai-career-survival-niche.md) | LinkedIn Optimizer (86.5) | 7 AI job security ideas: LinkedIn optimizer, threat dashboard, pivot planner, upskilling, interview sim |
+| 2026-04-11 | [2026-04-11-ai-career-survival-niche.md](./2026-04-11-ai-career-survival-niche.md) | AI Career Survival Niche (7 ideas) | 7 AI job security ideas: threat dashboard, pivot planner, upskilling, interview sim + others |
+| 2026-04-11 | [2026-04-11-linkedin-optimizer.md](./2026-04-11-linkedin-optimizer.md) | **LinkedIn Optimizer — Full Product Spec (86.5)** | Dedicated deep-dive: AI interview flow, approval loop, $20K/mo math, full build plan |
 | 2026-04-11 | [2026-04-11-research-batch3.md](./2026-04-11-research-batch3.md) | AI Ad Creative Local (79.0) | 7 Grok-sourced ideas re-scored; avg Grok 80.9 → honest 73.1; voice insurance re-scored 81.5 → 74.5 |
 | 2026-04-11 | [2026-04-11-ai-calling-businesses.md](./2026-04-11-ai-calling-businesses.md) | Dental/Medical Reactivation (81.5) | 6 AI voice calling ideas; self-hosted infra arbitrage ($0.015/min vs $0.09/min hosted); all share one VPS |
 
