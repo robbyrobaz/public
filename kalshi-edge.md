@@ -1,8 +1,8 @@
 # Kalshi Edge — Autonomous Prediction-Market Trading System
 
-A fully autonomous trading system that scans [Kalshi](https://kalshi.com) every 15 minutes, places paper bets across 65 strategies, and flips proven strategies to live real-money trading with strict risk controls.
+A fully autonomous trading system that scans [Kalshi](https://kalshi.com) every 15 minutes, places paper bets across ~65 strategies, and flips proven strategies to live real-money trading with strict risk controls.
 
-**Status (Apr 28, 2026):** Two live sleeves active — `crypto_15m_momentum_v2` (re-promoted after paper recovered to PF 1.43, currently 2W/2L net +$2.62 in fresh window) and `favorite_no_aggressive_v2` (operator-promoted at n=10). The first live attempt was auto-killed correctly after a 5-loss streak — system protected capital, paper-side recovered, re-promotion proved viable.
+**Status (May 4, 2026):** Live sleeve cut to **one workhorse**. `crypto_15m_momentum_v2` running with **+$127.19 net / 40% WR / PF 2.01 over n=231 trades**. `crypto_daily_fade_v2` on watch (n=11). Two strategies (`favorite_no_aggressive_v2` and `gemini_picks_v2`) demoted today after live results diverged from paper. **All AI-powered pickers disabled** — they were paper-positive but live-negative once API costs landed.
 
 ---
 
@@ -12,16 +12,17 @@ A fully autonomous trading system that scans [Kalshi](https://kalshi.com) every 
 ┌────────────────────────────────────────────────────────────────────┐
 │  systemd timer (every 15 min) — kalshi-paper-v2.timer             │
 │                                                                    │
-│  ┌──────────────┐   ┌────────────────┐   ┌──────────────────┐     │
-│  │  resolver    │ → │  ~55 mechanical│ → │  AI pickers      │     │
-│  │  (Kalshi API)│   │  scanners      │   │  (4 LLM models)  │     │
-│  └──────────────┘   └────────────────┘   └──────────────────┘     │
-│           ↓                  ↓                   ↓                 │
-│           └──────────────────┴───────────────────┘                 │
+│  ┌──────────────┐   ┌────────────────────────────────────────┐    │
+│  │  resolver    │ → │  ~65 mechanical scanners (no AI)       │    │
+│  │  (Kalshi API)│   │  crypto / sports / weather / arb       │    │
+│  └──────────────┘   └────────────────────────────────────────┘    │
+│           ↓                              ↓                         │
+│           └──────────────────────────────┘                         │
 │                              ↓                                     │
 │                     paper_v2_trades.jsonl                          │
 │                              ↓                                     │
-│              promotion_check + live_sleeve_promoter                │
+│                        promotion_check                             │
+│                  (gates n≥20, PF, WR, Sharpe, DD)                  │
 │                              ↓                                     │
 │                  data/live_sleeve_eligible.json                    │
 └────────────────────────────────────────────────────────────────────┘
@@ -30,6 +31,7 @@ A fully autonomous trading system that scans [Kalshi](https://kalshi.com) every 
 │  Per-strategy live runners (every 15 min when promoted)            │
 │   • Place real orders via Kalshi /portfolio/orders                 │
 │   • Confirm fills via /portfolio/orders/{id} polling               │
+│   • Re-read book before placement (concurrent-write dedup)         │
 │   • small_balance_guard for per-bet correctness                    │
 │   • Refuse to fire if status != 'ready'                            │
 └────────────────────────────────────────────────────────────────────┘
@@ -37,12 +39,11 @@ A fully autonomous trading system that scans [Kalshi](https://kalshi.com) every 
 
 ---
 
-## Two-Brain Architecture
+## Mechanical-Only Strategy Library (~65 strategies, zero AI)
 
-### Brain 1 — Mechanical Scanners (~55 strategies, no AI)
 Pure price-filter rules running every 15 min:
 - **Crypto momentum / fade / breakout / reversion** — 15-min and hourly KXBTC/KXETH ladders
-- **Sports favorite NO bets** — high-OI NBA/NHL/MLB/NCAA underdog hedges
+- **Sports favorite NO** — high-OI NBA/NHL/MLB/NCAA underdog hedges (4 new MLB/NHL strategies added May 4)
 - **MLB player props** — strikeout NO, hits-allowed YES at 5–12¢, total-bases NO
 - **NHL playoff specials** — totals under, dog covers, underdog moneylines
 - **Cross-platform arb** — Kalshi vs Polymarket title-matched divergence
@@ -52,26 +53,14 @@ Pure price-filter rules running every 15 min:
 - **Crypto ladder lognormal model** — Black-Scholes-style probability modeling using realized volatility from CoinGecko + 1-min Blofin candles
 - **Data-enriched scanners** — pull live NQ futures (1-min IBKR feed) and CoinGecko 5-min candles to inform crypto + macro bets with grounded numeric context
 
-### Brain 2 — AI Picker Showdown (4 LLMs on same candidate batch)
+### What was tried and shut off (May 4)
 
-A unified picker fetches ~40-80 live Kalshi candidates and sends the same JSON array to multiple frontier models in parallel. Each model returns:
-1. `predictions[]` — per-candidate probability scores (for calibration analysis)
-2. `picks[]` — top-N high-conviction bets (for paper-betting)
+The system previously included an **AI Picker Showdown**: 4-5 frontier LLMs (Grok, Claude, Gemini, DeepSeek, Qwen) hitting the same candidate batch and competing on paper PnL + Brier score. After 1-2 weeks of live data:
 
-| Model | Path | Edge |
-|---|---|---|
-| **Grok 4.1 Fast** | OpenRouter (web + X search) | Real-time injury news, breaking tweets |
-| **Claude Opus 4.7** | Local CLI (free) | Reasoning, calibration honesty |
-| **Gemini 2.5 Pro** | OpenRouter (reasoning) | Long-context probability judgment |
-| **DeepSeek V3.2** | OpenRouter (web) | Cheap reasoning, often surprisingly strong |
+- `gemini_picks_v2`: paper PF 4.76 → **live PF 0.78 over n=14** (12 losses)
+- `data_enriched_grok_picks_v2`: ~$0.05 cost per pick × 30+ candidates per cycle = **~$1.50/run overhead** that paper never modeled
 
-*(Qwen 3 VL was dropped Apr 28 — the vision-language model returned valid JSON with empty arrays because OpenRouter's web plugin isn't routed through VL models, and it refused to score from priors alone.)*
-
-Plus two specialized pickers on a 4-hour cadence:
-- **Curated picker** — Grok and Gemini in parallel (logged as separate strategies) on a pre-filtered news-driven pool: sports within 6h, mention markets, daily crypto, macro events. Polymarket-enriched.
-- **Data-enriched Grok picker** — same model, but the prompt prepends a JSON header with live local data (NQ futures % moves, BTC/ETH/SOL spot + recent change + 24h realized volatility). Tests whether grounded numeric context beats web-search-only.
-
-Each model + each variant lands as a separate paper strategy (`grok_picks_v2`, `grok_curated_picks_v2`, `gemini_curated_picks_v2`, `data_enriched_grok_picks_v2`, etc.) so PnL/PF/WR/Brier-score accumulate independently — bad models self-eliminate via promotion gates.
+**Decision:** disabled the gemini live timer, demoted the strategy in `live_sleeve_eligible.json`, and commented `data_enriched_grok_picker.py` out of the paper runner. Total live AI spend now: $0/day. The system is mechanical-only until/unless an AI strategy can demonstrate edge survival under realistic per-call cost overhead.
 
 ---
 
@@ -80,19 +69,14 @@ Each model + each variant lands as a separate paper strategy (`grok_picks_v2`, `
 | | Paper (data factory) | Live (real money) |
 |---|---|---|
 | Position cap | None | 3 concurrent |
-| Per-strategy cap | None | n/a |
-| Dollar exposure cap | None | $5/bet |
+| Dollar exposure cap | None | $5–$25/bet (per-strategy) |
 | Daily loss halt | None | none — strategy-level kill instead |
 | **Strategy-level kill** | n/a | **PF<0.70 on n≥30 OR WR<25% on n≥25 OR ≤−20% sleeve drawdown** |
-| Per-bet correctness | None | price band $0.10-$0.50, contracts 5-10, max bet $5, per-event dedup |
+| Per-bet correctness | None | price band $0.10-$0.50, contracts 5-50, per-event dedup, fresh-read dedup before order |
 
-**Paper is unconstrained** — it's the data factory. Every loss is signal. Every strategy gets to test itself. Promotion gates filter out losers before they ever reach live.
+**Paper is unconstrained** — it's the data factory. Every loss is signal. Every strategy gets to test itself.
 
-**Live uses a single kill switch**: the promoter evaluates rolling LIVE performance and demotes when the strategy actually fails. No arbitrary day-boundary halts, no profit locks. If the strategy works it works; if it fails it stops.
-
-After demotion, a sticky `live_killed` flag prevents auto-re-promotion on stale paper data. Manual reset required to retry — protects against the "paper looks great but live keeps losing" trap.
-
-The kill thresholds were **loosened from PF<1.0/n=10 → PF<0.70/n=30** in late April after a re-promoted strategy proved the original n=10 gate fired during early-sample variance: a TRUE PF=1.5 strategy has a ~35% chance of randomly seeing PF<1.0 in its first 10 trades. The −20% sleeve drawdown remains the actual capital guard; PF/WR are judgment gates that need bigger samples.
+**Live uses a single kill switch** with a sticky `live_killed` flag that prevents auto-re-promotion on stale paper data — protects against the "paper looks great but live keeps losing" trap.
 
 ---
 
@@ -100,11 +84,13 @@ The kill thresholds were **loosened from PF<1.0/n=10 → PF<0.70/n=30** in late 
 
 Every live order goes through TWO authoritative checks:
 
-1. **At placement** — `place_order` returns immediately, then `confirm_fill(order_id, timeout=15s)` polls `/portfolio/orders/{id}` until status is `executed`/`canceled`/`expired`. Records actual `fill_count_fp`, `maker_fill_cost_dollars`, `taker_fees_dollars` (not intended values).
+1. **At placement** — `place_order` returns immediately, then `confirm_fill(order_id, timeout=60s)` polls `/portfolio/orders/{id}` until status is `executed`/`canceled`/`expired`. Records actual `fill_count_fp`, `maker_fill_cost_dollars`, `taker_fees_dollars` (not intended values).
 
 2. **At settlement** — `resolve_live_settled` reads `/portfolio/settlements` directly. Uses Kalshi's authoritative `revenue / cost / fees` for PnL. Does NOT recompute from our records (partial fills break that math).
 
-This caught a critical bug early: 2 of our first 17 "trades" had been recorded but never actually filled — Kalshi confirmed `revenue: $0, cost: $0`. They were inflating our reported PnL by $6.35 and would have continued doing so. Defense-in-depth wins over silent corruption.
+This caught a bug early: 2 of our first 17 "trades" had been recorded but never actually filled — Kalshi confirmed `revenue: $0, cost: $0`. They were inflating reported PnL by $6.35. Defense-in-depth wins over silent corruption.
+
+A duplicate-bet bug found May 3 added a third defense layer: re-read the book immediately before each order placement. Concurrent runner writes were overwriting `live_sleeve_trades.jsonl` while another runner's resolver-save was in flight, occasionally hiding existing positions from the dedup check.
 
 ---
 
@@ -112,10 +98,9 @@ This caught a critical bug early: 2 of our first 17 "trades" had been recorded b
 
 Mobile-first SPA at `omen-claw.tail76e7df.ts.net:8898`:
 
-- **Live tab** — sleeve balance, today PnL, **per-strategy live performance cards** (live PnL/WR/PF tiles + drawdown bar + trades-until-kill-check progress + last-result pill), **cumulative PnL chart with per-strategy lines on 4-hour buckets** (TOTAL bold + thin colored line per strategy), recent trades with proper UTC close times pulled from Kalshi API
+- **Live tab** — sleeve balance, today PnL, **per-strategy live performance cards** (PnL/WR/PF tiles + drawdown bar), $/Day and ROI%/Day tiles (deposit-independent, calculated as daily return on average deployed capital), **cumulative PnL chart with per-strategy lines on 4-hour buckets**, ROI% per 4h bucket bar chart
 - **Paper tab** — total PnL, per-strategy bar chart, win-rate, profit factor as primary metric
-- **AI Showdown tab** — model leaderboard with PnL + Brier score + directional accuracy + confidence distribution + **per-strategy `$/call`** (so 3 strategies sharing the Grok model each show their own real cost), **Net PnL by Model bar chart** (gross PnL vs API cost drag), **Spend by Model panel** (OpenRouter daily spend stacked-bar)
-- **Promotion tab** — per-strategy gate-check chips, LIVE status badges (🟢 live / 🛑 live-killed / ⏸ demoted), $100 sleeve simulator
+- **Promotion tab** — per-strategy gate-check chips, LIVE status badges (🟢 live / 🛑 live-killed / ⏸ demoted), $100 sleeve simulator with realistic-fill / slip-aware simulation
 - **Risk tab** — per-bet correctness rules + strategy-level kill thresholds + open exposure capacity bars
 
 Single shell across all tabs (no jarring transitions). Auto-refresh every 30s, pauses when tab hidden.
@@ -127,34 +112,35 @@ Single shell across all tabs (no jarring transitions). Auto-refresh every 30s, p
 | Layer | Tech |
 |---|---|
 | Schedulers | systemd user timers (every 15 min) |
-| Strategy scanners | Python (one file per strategy, ~50 lines each) |
-| AI calls | OpenRouter (`x-ai/grok-4.1-fast`, `google/gemini-2.5-pro`, `deepseek/deepseek-v3.2`) + Claude CLI |
+| Strategy scanners | Python (one file per strategy, ~50 lines each, shared `_strategy_template_v2`) |
 | Cross-platform matcher | Polymarket gamma API + custom title-matching with category whitelist |
-| Storage | JSONL append-only logs (`paper_v2_trades.jsonl`, `live_sleeve_trades.jsonl`, `ai_predictions.jsonl`, `llm_call_log.jsonl`) |
+| Storage | JSONL append-only logs (`paper_v2_trades.jsonl`, `live_sleeve_trades.jsonl`) |
 | Dashboard | Flask + vanilla JS + Chart.js (single-page app, no build step) |
 | Local data | NQ 1-min CSV (live IBKR feed), CoinGecko 5-min candles, Blofin 1-min parquet |
 
-Total cost: **~$0.75–$2/day** for AI calls. Tracked per-call via `llm_call_log.jsonl` rather than the OpenRouter dashboard total — shared API keys roll up calls from many systems, so attributing OR's total spend to Kalshi inflated costs ~7×. Kalshi API is free.
+Total cost: **~$0/day**. Kalshi API is free. AI calls are off.
 
 ---
 
 ## Selected Lessons (the hard-earned ones)
 
-1. **The candlestick endpoint introduces look-ahead bias.** A backtest that "found" cheap-YES sports props at 30%+ EV went 0/19 live — root cause was the candlestick endpoint returning post-close prices. Killed an entire strategy family. Always use the markets endpoint for true pre-event prices.
+1. **Sports markets show paper-to-live regime collapse, crypto markets do not.** Three strategies in a row (`nba_spread_yes`, `gemini_picks_v2`, `favorite_no_aggressive_v2`) all dropped 15-30 percentage points of WR going from paper to live. Live execution lands outside the paper-modeled fill curve because sports books move the moment a NO bet hits the favorite leg. Crypto 15m markets have $0.01 spreads and millisecond-level depth — the paper edge survives. Going forward: sports promotion requires `live_paper_sim` (realistic fill + slip) edge survival, not raw paper edge.
 
-2. **Limit orders fill seconds-to-minutes after submission.** Recording intended size + price as if filled produces phantom PnL. Always poll `/portfolio/orders/{id}` after placement.
+2. **AI pickers were paper-positive and live-negative.** Gemini's paper PF was 4.76; live was 0.78 over 14 trades. The per-call cost overhead (~$1.50/run) plus the same execution gap that hits manual sports strategies eats the edge. Disabling LLM strategies until the simulated-realistic-fill paper book includes API spend.
 
-3. **Paper auto-pauses → paper data freezes → promoter must evaluate LIVE data.** A bug where the promoter detected live failure but the same run re-promoted on stale paper data cost real money. Sticky `live_killed` flag fixed it.
+3. **Day-of-week matters.** Crypto 15m has a **−29.6% ROI Sunday effect** (n=30) and **+35.1% Saturday effect** (n=28). Likely thin Asian-session orderbooks early Sunday. A bad-feeling crypto streak should be checked against day-of-week before blamed on the strategy.
 
-4. **AI consensus ≠ AI being right.** When 4 of 5 models bet the same direction (Sixers Game 4, Lakers Game 4), they were just reading the same conventional sports narrative — both lost. Independent agreement (Grok + Gemini independently picking the same Royals MLB win) is more meaningful signal.
+4. **The candlestick endpoint introduces look-ahead bias.** A backtest that "found" cheap-YES sports props at 30%+ EV went 0/19 live — root cause was the candlestick endpoint returning post-close prices. Killed an entire strategy family. Always use the markets endpoint for true pre-event prices.
 
-5. **Asking AI for "top picks only" inflates confidence.** The same model went from 0.78+ confidences (when asked for top picks) to honest 0.40-0.65 distribution (when asked to score every candidate). Ask the AI to evaluate everything — extract picks downstream.
+5. **Limit orders fill seconds-to-minutes after submission.** Recording intended size + price as if filled produces phantom PnL. Always poll `/portfolio/orders/{id}` after placement.
 
-6. **The kill switch was tuned too tight.** Killing at PF<1.0 on n=10 has ~35% false-positive rate against TRUE PF=1.5 strategies. Loosened to PF<0.70 on n=30 — the −20% sleeve drawdown is the actual capital guard, PF/WR need bigger samples to be trustworthy.
+6. **Concurrent runner writes can race the deduper.** Multiple per-strategy runners share `live_sleeve_trades.jsonl`. One runner's `resolve_live_settled.save()` overwriting the file while another is appending can briefly hide entries from the start-of-run book read. Solution: re-read the book right before placing each order as a fresh-dedup check.
 
-7. **Shared API keys hide true cost.** Pulling OpenRouter total spend and attributing it to Kalshi inflated costs ~7×. Per-call token logging (Kalshi-only) revealed real spend is ~$0.75/week. And vision-language models don't get web plugins routed — Qwen 3 VL silently returned empty arrays for that reason.
+7. **The kill switch was tuned too tight.** Killing at PF<1.0 on n=10 has ~35% false-positive rate against TRUE PF=1.5 strategies. Loosened to PF<0.70 on n=30 — the −20% sleeve drawdown is the actual capital guard, PF/WR need bigger samples to be trustworthy.
 
 8. **Don't parse ticker names for time data.** Kalshi tickers like `KXBTC15M-26APR281245-45` use Eastern Time, not UTC. Pulling `close_time` from `/markets/{ticker}` is the only reliable source. (NBA quirk: `close_time` is the playoff series end while `expected_expiration_time` is the actual game end — use the earlier of the two.)
+
+9. **n=20 is the right call-it-broken threshold for sports strategies.** With WR 15% on n=20 vs expected 50%, the binomial probability of being legitimately at 50% is ~0.001 — clearly broken, not variance. Killing at n=14 (gemini) was overdue; killing at n=20 (favorite_no_aggressive) was right.
 
 ---
 
